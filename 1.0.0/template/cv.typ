@@ -7,17 +7,17 @@
 #import "content/" + cfg.lang + ".typ": content
 
 #let data = (
-  name: "Name",
-  last-name-1: "LastName1",
-  last-name-2: "LastName2",
-  phone-number: "PhoneNumber",
-  email: "Email",
-  github: "Github",
-  linkedin: "Linkedin",
-  webpage: "Webpage",
+  name: "Whisker",
+  last-name-1: "Felix",
+  last-name-2: "Monroe",
+  phone-number: "+33 123456789",
+  email: "whisker.felix@gaming.com",
+  github: "whiskerfelix",
+  linkedin: "whiskerfelix",
+  webpage: "whiskerfelix.com",
   photo: image("./assets/photo.jpg"),
-  city: if cfg.lang == "en" { "City" }, // else if cfg.lang == "es" { "Ciudad" },
-  country: if cfg.lang == "en" { "Country" }, // else if cfg.lang == "es" { "País" },
+  city: if cfg.lang == "en" { "Madrid" }, // else if cfg.lang == "es" { "Ciudad" },
+  country: if cfg.lang == "en" { "Spain" }, // else if cfg.lang == "es" { "País" },
 )
 
 #content(cfg, data)
