@@ -1,5 +1,5 @@
 # cv-typst 🏢
-Plantilla de `Typst` para currículum.
+Plantilla de `Typst` para Curriculum-Vitae.
 
 ## Instalación 🚀
 Para instalar la plantilla, basta con ejecutar los siguientes comandos en una terminal:
