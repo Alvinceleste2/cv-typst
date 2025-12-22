@@ -39,4 +39,12 @@
       ]
     ]
   ]
+
+  section(title: "Skills", color: cfg.color)[
+    #skills(color: cfg.color, skills: (
+      skill([Gaming Platforms], [Playstation #vbar(cfg.color, 0.2em) Xbox #vbar(cfg.color, 0.2em) Nintendo Switch]),
+      skill([Streaming Software], [OBS Studio #vbar(cfg.color, 0.2em) Twitch Studio]),
+      skill([Content Creation], [Video Editing #vbar(cfg.color, 0.2em) Thumbnail Design]),
+    ))
+  ]
 }
