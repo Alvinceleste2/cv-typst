@@ -1,0 +1,11 @@
+[package]
+name = "cv"
+version = "1.0.0"
+entrypoint = "plantilla.typ"
+authors = ["Alvinceleste2"]
+license = "MIT"
+description = ""
+
+[template]
+path = "template"
+entrypoint = "cv.typ"
