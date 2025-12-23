@@ -1,4 +1,4 @@
-#import "../utils/components.typ": *
+#import "../template/components.typ": *
 
 #let content(cfg, data) = {
   header(color: cfg.color, data: data)

@@ -16,6 +16,7 @@
   linkedin: "whiskerfelix",
   webpage: "whiskerfelix.com",
   photo: image("./assets/photo.jpg"),
+  // The following lines can be changed to assess several languages differences. See some examples below
   city: if cfg.lang == "en" { "Madrid" }, // else if cfg.lang == "es" { "Ciudad" },
   country: if cfg.lang == "en" { "Spain" }, // else if cfg.lang == "es" { "País" },
 )
