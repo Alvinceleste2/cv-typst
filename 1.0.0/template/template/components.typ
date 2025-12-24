@@ -20,9 +20,9 @@
       text(size: 12pt)[#icon(color, fa-inbox()) #link("mailto:" + data.email)],
       [],
       text(size: 11pt)[
-        #icon(color, fa-github()) #link("github.com/" + data.github, data.github) #vbar(color, 1em)
-        #icon(color, fa-linkedin()) #link("linkedin.com/" + data.linkedin, data.linkedin) #vbar(color, 1em)
-        #icon(color, fa-link()) #link(data.webpage)],
+        #icon(color, fa-github()) #link("https://github.com/" + data.github, data.github) #vbar(color, 1em)
+        #icon(color, fa-linkedin()) #link("https://linkedin.com/in/" + data.linkedin, data.linkedin) #vbar(color, 1em)
+        #icon(color, fa-link()) #link("https://" + data.webpage, data.webpage)],
     ),
     grid.cell(rowspan: 1, box(width: 4cm, height: 4cm, radius: 50%, clip: true, data.photo)),
   )
