@@ -1,4 +1,4 @@
-#import "utils/settings.typ": settings
+#import "template/settings.typ": settings
 
 // Initial Settings and Config
 #let cfg = (color: orange, lang: "en", author: "Author")
