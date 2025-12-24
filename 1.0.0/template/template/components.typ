@@ -6,6 +6,7 @@
 
 // HEADER
 #let header(color: str, data: list) = {
+  v(-1cm)
   grid(
     columns: (2fr, 1fr),
     align: center + horizon,
@@ -41,18 +42,20 @@
 
 // ITEMS
 #let item(title: str, subtitle: str, date: str, color: str, body) = {
-  text(size: 11pt, weight: "bold")[#smallcaps(title)]
-  h(1fr)
-  text(size: 10.5pt, fill: color)[_ #date _]
-  linebreak()
-  pad(left: 0.5em)[#text(size: 10.5pt)[#smallcaps(subtitle)]]
-  pad(left: 0.5em)[#body]
-  v(0.4em)
+  block(breakable: false)[
+    #text(size: 11pt, weight: "bold")[#smallcaps(title)]
+    #h(1fr)
+    #text(size: 10.5pt, fill: color)[_ #date _]
+    #linebreak()
+    #pad(left: 0.5em)[#text(size: 10.5pt)[#smallcaps(subtitle)]]
+    #pad(left: 0.5em)[#body]
+    #v(0.4em)
+  ]
 }
 
 #let bullet(color: str, body) = {
   set list(marker: text(fill: color)[•])
-  text()[- #body]
+  text(size: 10pt)[- #body]
 }
 
 // SKILL
