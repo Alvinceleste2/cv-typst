@@ -18,3 +18,5 @@ typst init @local/cv <folder_name>
 
 where `folder_name` is the name we want to give to the folder that will contain the document.
 
+## Example 🎨
+<img width="794" height="1123" alt="cv" src="https://github.com/user-attachments/assets/1065fb0f-b878-4c86-86a6-a4f92948645c" />
