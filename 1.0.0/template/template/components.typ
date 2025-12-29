@@ -22,9 +22,9 @@
       text(size: 12pt)[#icon(color, fa-inbox()) #link("mailto:" + data.email)],
       [],
       text(size: 11pt)[
-        #icon(color, fa-github()) #color-link(blue, "https://github.com/" + data.github, data.github) #vbar(color, 1em)
-        #icon(color, fa-linkedin()) #color-link(blue, "https://linkedin.com/in/" + data.linkedin, data.linkedin) #vbar(color, 1em)
-        #icon(color, fa-link()) #color-link(blue, "https://" + data.webpage, data.webpage)],
+        #icon(color, fa-github()) #h(0.2em) #color-link(blue, "https://github.com/" + data.github, data.github) #vbar(color, 1em)
+        #icon(color, fa-linkedin()) #h(0.2em) #color-link(blue, "https://linkedin.com/in/" + data.linkedin, data.linkedin) #vbar(color, 1em)
+        #icon(color, fa-link()) #h(0.2em) #color-link(blue, "https://" + data.webpage, data.webpage)],
     ),
     grid.cell(rowspan: 1, box(width: 4cm, height: 4cm, radius: 50%, clip: true, data.photo)),
   )
