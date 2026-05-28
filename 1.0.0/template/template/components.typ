@@ -14,7 +14,6 @@
 
 // HEADER
 #let header(data: list) = {
-  v(-1cm)
   grid(
     columns: (2fr, 1fr),
     align: center + horizon,
