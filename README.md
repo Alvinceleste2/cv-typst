@@ -21,7 +21,7 @@ typst init @local/cv <folder_name>
 where `folder_name` is the name you want to give to the folder that will contain the document.
 
 ### Method 2: Direct Clone
-You can also download the latest release of the template and start editing.
+You can also download the latest release of the template and start editing the provided `cv-typst-template.zip` file.
 
 ## Example 🎨
 ![cv](https://github.com/user-attachments/assets/c6237fdc-d67e-4ac0-91fa-4a65c2579dd2)
