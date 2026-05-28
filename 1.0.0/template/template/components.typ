@@ -5,7 +5,7 @@
 
 #let vbar(color: primary-color, spacing: 0.3em) = text(
   fill: color,
-  weight: "semibold",
+  weight: "bold",
 )[#h(spacing)|#h(spacing)]
 
 #let color-link(color: primary-color, url, body) = link(url)[#text(
@@ -28,9 +28,9 @@
       [],
       text(
         size: 12pt,
-      )[#icon(fa-location-dot()) #data.city / #data.country #vbar(spacing: 1em) #icon(fa-phone()) #link("tel:" + data.phone-number)],
+      )[#icon(fa-location-dot()) #h(0.1em) #data.city / #data.country #vbar(spacing: 1em) #icon(fa-phone()) #h(0.1em) #link("tel:" + data.phone-number)],
       [],
-      text(size: 12pt)[#icon(fa-inbox()) #link(
+      text(size: 12pt)[#icon(fa-inbox()) #h(0.1em) #link(
           "mailto:" + data.email,
         )],
       [],
