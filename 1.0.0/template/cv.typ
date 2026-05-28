@@ -1,7 +1,7 @@
 #import "template/settings.typ": settings
 
 // Initial Settings and Config
-#let cfg = (color: orange, lang: "en", author: "Author")
+#let cfg = (lang: "en", author: "Author")
 #show: settings.with(cfg)
 
 #import "content/" + cfg.lang + ".typ": content
@@ -21,4 +21,4 @@
   country: if cfg.lang == "en" { "Spain" }, // else if cfg.lang == "es" { "País" },
 )
 
-#content(cfg, data)
+#content(data)

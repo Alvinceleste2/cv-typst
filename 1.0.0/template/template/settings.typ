@@ -22,3 +22,8 @@
 
   body
 }
+
+// THEME SETTINGS
+
+#let primary-color = orange // Used for headings and bullets
+#let url-color = blue // Used for links and urls inside the document. Should be used with #color-link()
