@@ -1,10 +1,9 @@
 #import "template/settings.typ": settings
+#import "template/components.typ": header
 
 // Initial Settings and Config
-#let cfg = (lang: "en", author: "Author")
-#show: settings.with(cfg)
-
-#import "content/" + cfg.lang + ".typ": content
+#let config = (lang: "en", author: "Author")
+#show: settings.with(config)
 
 #let data = (
   name: "Whisker",
@@ -16,9 +15,11 @@
   linkedin: "whiskerfelix",
   webpage: "whiskerfelix.com",
   photo: image("./assets/photo.jpg"),
-  // The following lines can be changed to assess several languages differences. See some examples below
-  city: if cfg.lang == "en" { "Madrid" }, // else if cfg.lang == "es" { "Ciudad" },
-  country: if cfg.lang == "en" { "Spain" }, // else if cfg.lang == "es" { "País" },
+  // The following lines might be changed to assess several languages differences. See some examples below
+  city: if config.lang == "en" { "Madrid" }, // else if config.lang == "es" { "Ciudad" },
+  country: if config.lang == "en" { "Spain" }, // else if config.lang == "es" { "País" },
 )
 
-#content(data)
+#header(data: data)
+
+#include "content/" + config.lang + ".typ"
