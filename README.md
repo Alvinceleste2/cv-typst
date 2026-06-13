@@ -20,7 +20,7 @@ typst init @local/cv <folder_name>
 
 where `folder_name` is the name you want to give to the folder that will contain the document.
 
-### Method 2: Direct Clone
+### Method 2: Direct Clone (Recommended)
 You can also download the latest release of the template and start editing the provided `cv-typst-template.zip` file.
 
 ## Examples 🎨
@@ -31,8 +31,8 @@ Theme colors can be changed freely. Here is another color theme.
 
 ![cv](https://github.com/user-attachments/assets/5d9e3f1f-81f9-4821-b96f-9b80bb0d2919)
 
-Some elements such as social links and profile photo can be easily removed.
+Some elements such as social links and profile photo can be easily removed. The following example hides both the personal webpage link and profile photo.
 
-![cv](https://github.com/user-attachments/assets/721ef086-84cc-4948-b627-4fa1484da0d6)
+![cv](https://github.com/user-attachments/assets/050a4276-50a3-4f1c-b3ad-fa9e0ffa3c8d)
 
 
