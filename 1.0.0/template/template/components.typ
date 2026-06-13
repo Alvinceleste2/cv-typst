@@ -12,50 +12,109 @@
   fill: url-color,
 )[#body]]
 
-#let header(data: list) = {
-  v(-1cm)
-  grid(
-    columns: (2fr, 1fr),
-    align: center + horizon,
-    grid(
-      columns: 1,
-      rows: (auto, 1.3em, auto, 0.6em, auto, 1em, auto),
-      text(size: 25pt, weight: "bold")[#smallcaps(
-          data.name,
-        ) #smallcaps(
-          data.last-name-1,
-        ) #smallcaps(data.last-name-2)],
-      [],
-      text(
-        size: 12pt,
-      )[#icon(fa-location-dot()) #h(0.1em) #data.city / #data.country #vbar(spacing: 1em) #icon(fa-phone()) #h(0.1em) #link("tel:" + data.phone-number)],
-      [],
-      text(size: 12pt)[#icon(fa-inbox()) #h(0.1em) #link(
-          "mailto:" + data.email,
-        )],
-      [],
-      text(size: 11pt)[
-        #icon(fa-github()) #h(0.3em) #color-link(
+// How info is presented can be changed in this function
+#let info(data) = [
+  #grid(
+    columns: 1,
+    rows: (auto, 1.3em, auto, 0.6em, auto, 1em, auto),
+    text(size: 25pt, weight: "bold")[#smallcaps(data.name) #smallcaps(
+        data.last-name-1,
+      ) #smallcaps(data.last-name-2)],
+    [],
+    text(
+      size: 12pt,
+    )[#icon(fa-location-dot()) #h(0.1em) #data.city / #data.country #vbar(spacing: 1em) #icon(fa-phone()) #h(0.1em) #link("tel:" + data.phone-number)],
+    [],
+    text(size: 12pt)[#icon(fa-inbox()) #h(0.1em) #link("mailto:" + data.email)],
+    [],
+    text(size: 11pt)[
+      #if data.github != none {
+        icon(fa-github())
+        h(0.3em)
+        color-link(
           "https://github.com/" + data.github,
           data.github,
-        ) #vbar(spacing: 1em)
-        #icon(fa-linkedin()) #h(0.3em) #color-link(
+        )
+        if data.linkedin != none {
+          vbar(spacing: 1em)
+        }
+      }
+      #if data.linkedin != none {
+        icon(fa-linkedin())
+        h(0.3em)
+        color-link(
           "https://linkedin.com/in/" + data.linkedin,
           data.linkedin,
-        ) #vbar(spacing: 1em)
-        #icon(fa-link()) #h(0.3em) #color-link(
+        )
+        if data.webpage != none {
+          vbar(spacing: 1em)
+        }
+      }
+      #if data.webpage != none {
+        icon(fa-link())
+        h(0.3em)
+        color-link(
           "https://" + data.webpage,
           data.webpage,
-        )],
-    ),
-    grid.cell(rowspan: 1, box(
-      width: 4cm,
-      height: 4cm,
-      radius: 50%,
-      clip: true,
-      data.photo,
-    )),
+        )
+      }
+    ],
   )
+]
+
+#let header(data: list) = {
+  v(-1cm)
+  if data.photo != none {
+    grid(
+      columns: (2fr, 1fr),
+      align: center + horizon,
+      info(data),
+
+      grid.cell(rowspan: 1, box(
+        width: 4cm,
+        height: 4cm,
+        radius: 50%,
+        clip: true,
+        data.photo,
+      )),
+    )
+  } else {
+    grid(
+      columns: 1fr,
+      align: center + horizon,
+      grid(
+        columns: 1,
+        rows: (auto, 1.3em, auto, 0.6em, auto, 1em, auto),
+        text(size: 25pt, weight: "bold")[#smallcaps(
+            data.name,
+          ) #smallcaps(
+            data.last-name-1,
+          ) #smallcaps(data.last-name-2)],
+        [],
+        text(
+          size: 12pt,
+        )[#icon(fa-location-dot()) #h(0.1em) #data.city / #data.country #vbar(spacing: 1em) #icon(fa-phone()) #h(0.1em) #link("tel:" + data.phone-number)],
+        [],
+        text(size: 12pt)[#icon(fa-inbox()) #h(0.1em) #link(
+            "mailto:" + data.email,
+          )],
+        [],
+        text(size: 11pt)[
+          #icon(fa-github()) #h(0.3em) #color-link(
+            "https://github.com/" + data.github,
+            data.github,
+          ) #vbar(spacing: 1em)
+          #icon(fa-linkedin()) #h(0.3em) #color-link(
+            "https://linkedin.com/in/" + data.linkedin,
+            data.linkedin,
+          ) #vbar(spacing: 1em)
+          #icon(fa-link()) #h(0.3em) #color-link(
+            "https://" + data.webpage,
+            data.webpage,
+          )],
+      ),
+    )
+  }
 }
 
 #let item(title: str, subtitle: str, date: str, body) = {
