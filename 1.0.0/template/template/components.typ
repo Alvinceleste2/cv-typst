@@ -119,13 +119,15 @@
 }
 
 #let skills(skills: array) = {
-  grid(
-    columns: (auto, 1fr),
-    column-gutter: 1em,
-    row-gutter: 1em,
-    align: (right, left),
-    ..skills.flatten(),
-  )
+  pad(left: 1em)[
+    #grid(
+      columns: (auto, 1fr),
+      column-gutter: 1em,
+      row-gutter: 1em,
+      align: (right, left),
+      ..skills.flatten(),
+    )
+  ]
 }
 
 #let skill(title, desc) = {
