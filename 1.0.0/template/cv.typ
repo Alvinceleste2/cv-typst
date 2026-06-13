@@ -1,6 +1,15 @@
 #import "template/settings.typ": settings
 #import "template/components.typ": header
 
+#import "@preview/iconify:0.5.3": icon, provide-icons
+
+#provide-icons(
+  json("./assets/grommet-icons.json"),
+  json("./assets/material-symbols.json"),
+  json("./assets/solar.json"),
+  json("./assets/mingcute.json"),
+)
+
 // Initial Settings and Config
 #let config = (lang: "en", author: "Author")
 #show: settings.with(config)

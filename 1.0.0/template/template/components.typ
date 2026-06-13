@@ -1,7 +1,22 @@
-#import "@preview/fontawesome:0.6.0": *
+#import "@preview/iconify:0.5.3": icon
 #import "./settings.typ": *
 
-#let icon(color: primary-color, icon) = text(fill: color)[#icon]
+#let inline-icon(
+  name,
+  color: primary-color,
+  size-to: "P",
+  scale: 1.8,
+) = context {
+  let text-edge = measure(size-to).height
+  let text-bounds = measure(text(top-edge: "bounds", size-to)).height
+  let extend = calc.max(0pt, text-bounds - text-edge) * scale
+  let shift = (text-bounds * scale - text-bounds) / 2
+  return text(fill: color)[#icon(
+    name,
+    height: text-bounds * scale,
+    y: -extend - shift,
+  )]
+}
 
 #let vbar(color: primary-color, spacing: 0.3em) = text(
   fill: color,
@@ -16,21 +31,27 @@
 #let info(data) = [
   #grid(
     columns: 1,
-    rows: (auto, 1.3em, auto, 0.6em, auto, 1em, auto),
+    rows: (auto, 1.3em, auto, 1em, auto, 1.5em, auto),
+
     text(size: 25pt, weight: "bold")[#smallcaps(data.name) #smallcaps(
         data.last-name-1,
       ) #smallcaps(data.last-name-2)],
     [],
+
     text(
       size: 12pt,
-    )[#icon(fa-location-dot()) #h(0.1em) #data.city / #data.country #vbar(spacing: 1em) #icon(fa-phone()) #h(0.1em) #link("tel:" + data.phone-number)],
+    )[#inline-icon("material-symbols:location-on-rounded") #h(0.1em) #data.city / #data.country #vbar(spacing: 1em) #inline-icon("solar:phone-bold", scale: 2) #h(0.1em) #link("tel:" + data.phone-number)],
     [],
-    text(size: 12pt)[#icon(fa-inbox()) #h(0.1em) #link("mailto:" + data.email)],
+
+    text(size: 12pt)[#inline-icon("material-symbols:inbox-rounded") #h(
+        0.1em,
+      ) #link("mailto:" + data.email)],
     [],
+
     text(size: 11pt)[
       #if data.github != none {
-        icon(fa-github())
-        h(0.3em)
+        inline-icon("grommet-icons:github")
+        h(0.4em)
         color-link(
           "https://github.com/" + data.github,
           data.github,
@@ -40,8 +61,8 @@
         }
       }
       #if data.linkedin != none {
-        icon(fa-linkedin())
-        h(0.3em)
+        inline-icon("grommet-icons:linkedin", scale: 1.6)
+        h(0.4em)
         color-link(
           "https://linkedin.com/in/" + data.linkedin,
           data.linkedin,
@@ -51,8 +72,8 @@
         }
       }
       #if data.webpage != none {
-        icon(fa-link())
-        h(0.3em)
+        inline-icon("mingcute:link-fill", scale: 1.8)
+        h(0.4em)
         color-link(
           "https://" + data.webpage,
           data.webpage,
@@ -82,37 +103,7 @@
     grid(
       columns: 1fr,
       align: center + horizon,
-      grid(
-        columns: 1,
-        rows: (auto, 1.3em, auto, 0.6em, auto, 1em, auto),
-        text(size: 25pt, weight: "bold")[#smallcaps(
-            data.name,
-          ) #smallcaps(
-            data.last-name-1,
-          ) #smallcaps(data.last-name-2)],
-        [],
-        text(
-          size: 12pt,
-        )[#icon(fa-location-dot()) #h(0.1em) #data.city / #data.country #vbar(spacing: 1em) #icon(fa-phone()) #h(0.1em) #link("tel:" + data.phone-number)],
-        [],
-        text(size: 12pt)[#icon(fa-inbox()) #h(0.1em) #link(
-            "mailto:" + data.email,
-          )],
-        [],
-        text(size: 11pt)[
-          #icon(fa-github()) #h(0.3em) #color-link(
-            "https://github.com/" + data.github,
-            data.github,
-          ) #vbar(spacing: 1em)
-          #icon(fa-linkedin()) #h(0.3em) #color-link(
-            "https://linkedin.com/in/" + data.linkedin,
-            data.linkedin,
-          ) #vbar(spacing: 1em)
-          #icon(fa-link()) #h(0.3em) #color-link(
-            "https://" + data.webpage,
-            data.webpage,
-          )],
-      ),
+      info(data),
     )
   }
 }
