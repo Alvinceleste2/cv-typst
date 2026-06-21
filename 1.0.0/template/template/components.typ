@@ -110,9 +110,21 @@
 
 #let item(title: str, subtitle: str, date: str, body) = {
   block(breakable: false, above: 0.8em, below: 0.9em)[
-    #text(size: 1.05em, weight: "bold")[#smallcaps(title)]
-    #h(1fr)
-    #text(size: 1em, fill: primary-color)[#date]
+    #pad(left: 1em)[
+      #grid(
+        columns: (1fr, auto),
+        column-gutter: 0.5cm,
+        align: (x, y) => {
+          if x == 1 {
+            right
+          } else {
+            left
+          }
+        },
+        text(size: 1.05em, weight: "bold")[#smallcaps(title)],
+        [#text(size: 1em, fill: primary-color)[#date]],
+      )
+    ]
     #pad(left: 1.5em)[#text(size: 1em)[#smallcaps(subtitle)]]
     #pad(left: 1.5em)[#body]
   ]
